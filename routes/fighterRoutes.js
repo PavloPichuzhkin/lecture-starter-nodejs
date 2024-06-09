@@ -68,21 +68,24 @@ router.post(
 router.patch(
     "/:id",
     updateFighterValid,
-    (req, res, next) => {
+    async (req, res, next) => {
         if (!res.badRequest) {
             try {
                 const {name} = req.body;
-                const {id} = req.params;
+                const userId = req.params.id;
 
-                if (!fighterService.getBy({id})) {
+                if (!fighterfService.getBy({id: userId})) {
                     throw new Error("Fighter to update not found");
                 }
 
-                if (fighterService.getBy({name})) {
+                const updateCandidate = fighterService.getBy({name})
+
+                if (updateCandidate && (updateCandidate.id !== userId)) {
+
                     throw new Error("Fighter with such name already exists");
                 }
 
-                res.data = fighterService.update(id, req.body);
+                res.data = fighterService.update(userId, req.body);
             } catch (err) {
                 res.badRequest = true;
                 res.message = err.message;
@@ -102,7 +105,7 @@ router.delete(
                 throw new Error("Where is your fu ID");
             }
 
-            if (!fighterService.getBy({ id })) {
+            if (!fighterService.getBy({id})) {
                 throw new Error("Fighter to delete not found");
             }
             res.data = fighterService.delete(req.params.id);
