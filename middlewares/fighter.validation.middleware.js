@@ -3,6 +3,10 @@ import {FIGHTER} from "../models/fighter.js";
 const createFighterValid = (req, res, next) => {
     // TODO: Implement validator for FIGHTER entity during creation
     try {
+        if (req.body.id) {
+            delete req.body.id
+        }
+
         if (!Object.keys(req.body).length) throw new Error('Empty object');
 
         const {defense, power, name} = req.body;
@@ -41,6 +45,10 @@ const createFighterValid = (req, res, next) => {
 const updateFighterValid = (req, res, next) => {
     // TODO: Implement validator for FIGHTER entity during update
     try {
+
+        if (req.body.id) {
+            delete req.body.id
+        }
 
         const {defense, power, name, health} = req.body;
 

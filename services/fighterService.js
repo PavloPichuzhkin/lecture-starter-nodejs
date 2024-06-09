@@ -12,6 +12,9 @@ class FighterService {
 
     getBy(repoKey) {
         try {
+            if (Object.keys(repoKey)[0] === "name") {
+                return fighterRepository.getByName(repoKey);
+            }
             return fighterRepository.getOne(repoKey);
         } catch (e) {
             console.log(e);
