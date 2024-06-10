@@ -14,7 +14,7 @@ router.get(
     "/",
     (req, res, next) => {
         try {
-            const fighters = userService.getAll(); //
+            const fighters = userService.getAll();
 
             if (!fighters.length) {
                 throw new Error("There are no Users in DB");
@@ -83,23 +83,25 @@ router.patch(
                 const {id} = req.params;
 
                 if (!userService.search({id})) {
+                    res.notFound = true;
                     throw new Error("User to update not found");
+
+                } else {
+                    const updateByEmailCandidate = userService.search({email})
+
+                    if (updateByEmailCandidate && (updateByEmailCandidate.id !== id)) {
+                        throw new Error("User with such email already exists");
+                    }
+
+                    const updateByPhoneCandidate = userService.search({phoneNumber})
+
+                    if (updateByPhoneCandidate && (updateByPhoneCandidate.id !== id)) {
+
+                        throw new Error("User with such phone number already exists");
+                    }
+
+                    res.data = userService.update(id, req.body);
                 }
-
-                const updateByEmailCandidate = userService.search({email})
-
-                if (updateByEmailCandidate && (updateByEmailCandidate.id !== id)) {
-                    throw new Error("User with such email already exists");
-                }
-
-                const updateByPhoneCandidate = userService.search({phoneNumber})
-
-                if (updateByPhoneCandidate && (updateByPhoneCandidate.id !== id)) {
-
-                    throw new Error("User with such phone number already exists");
-                }
-
-                res.data = userService.update(id, req.body);
             } catch (err) {
                 res.badRequest = true;
                 res.message = err.message;
@@ -115,11 +117,8 @@ router.delete(
     (req, res, next) => {
         try {
             const {id} = req.params;
-            if (!id) {
-                throw new Error("Where is your fu ID");
-            }
 
-            if (!userService.getBy({id})) {
+            if (!userService.search({id})) {
                 throw new Error("User to delete not found");
             }
             res.data = userService.delete(req.params.id);

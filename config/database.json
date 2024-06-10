@@ -1,0 +1,124 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Vasa",
+      "lastName": "Shi",
+      "email": "some22@gmail.com",
+      "phoneNumber": "+380981282825",
+      "password": "123",
+      "updatedAt": "2024-06-10T09:49:50.008Z"
+    },
+    {
+      "id": "c3713562-3bdf-4d5b-ac93-5cc945cd367c",
+      "firstName": "Vasa",
+      "lastName": "Shi",
+      "email": "some2@gmail.com",
+      "phoneNumber": "+380981282828",
+      "password": "123",
+      "createdAt": "2024-06-09T12:29:29.660Z"
+    },
+    {
+      "firstName": "Vasa",
+      "lastName": "Shi",
+      "email": "some4@gmail.com1",
+      "phoneNumber": "+380981282829",
+      "password": "123",
+      "id": "fa604302-f7e6-4a1d-85d6-0760b4eb6580",
+      "createdAt": "2024-06-09T14:28:02.865Z"
+    },
+    {
+      "firstName": "Vasa",
+      "lastName": "Shi",
+      "email": "some2222@gmail.com",
+      "phoneNumber": "+380981282822",
+      "password": "123",
+      "id": "1908c4f3-346f-44b1-818c-7947fdc1072f",
+      "createdAt": "2024-06-10T09:55:44.888Z"
+    }
+  ],
+  "fighters": [
+    {
+      "id": "1",
+      "name": "Dhalsima",
+      "health": 45,
+      "power": 3,
+      "defense": 1,
+      "updatedAt": "2024-06-08T20:33:31.807Z"
+    },
+    {
+      "name": "Dhal",
+      "health": 60,
+      "power": 5,
+      "defense": 1,
+      "id": "2",
+      "createdAt": "2024-06-08T17:37:24.964Z",
+      "updatedAt": "2024-06-10T08:49:43.017Z"
+    },
+    {
+      "name": "Dhalsim22",
+      "health": 60,
+      "power": 5,
+      "defense": 1,
+      "id": "9b2ad89f-e564-499a-a26c-030d88559b95",
+      "createdAt": "2024-06-08T17:37:24.964Z",
+      "updatedAt": "2024-06-10T08:49:43.017Z"
+    },
+    {
+      "name": "dhalsiman",
+      "power": 1,
+      "defense": 2,
+      "health": 80,
+      "id": "1d5af9c3-c93d-4e61-90b8-ca896705334a",
+      "createdAt": "2024-06-09T09:10:56.094Z",
+      "updatedAt": "2024-06-10T10:22:48.338Z"
+    },
+    {
+      "name": "Dhalsimaxvgsdf3",
+      "power": 1,
+      "id": "c4390153-e1bd-459f-995a-6853d504edb1",
+      "health": 80,
+      "defense": 1,
+      "createdAt": "2024-06-09T10:56:33.109Z"
+    },
+    {
+      "name": "halsimaxvgsdf3",
+      "power": 1,
+      "id": "1985e428-6e92-4fef-aeee-f2d8aa26cf82",
+      "health": 80,
+      "defense": 1,
+      "createdAt": "2024-06-09T10:58:21.784Z"
+    },
+    {
+      "name": "halsimaxvgsdf33",
+      "power": 11,
+      "health": 80,
+      "defense": 1,
+      "id": "aac51ad9-3403-4ff5-84ef-9ee49736a2cc",
+      "createdAt": "2024-06-10T10:16:17.417Z"
+    }
+  ],
+  "fights": [
+    {
+      "id": "1",
+      "fighter1": "id",
+      "fighter2": "id",
+      "log": [
+        {
+          "fighter1Shot": 0,
+          "fighter2Shot": 0,
+          "fighter1Health": 0,
+          "fighter2Health": 0
+        }
+      ],
+      "updatedAt": "2024-06-10T13:08:12.074Z"
+    },
+    {
+      "fighter1": "1",
+      "fighter2": "2",
+      "log": [],
+      "id": "2",
+      "createdAt": "2024-06-10T11:49:46.420Z"
+    }
+  ]
+}

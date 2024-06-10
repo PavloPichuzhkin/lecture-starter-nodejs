@@ -4,7 +4,7 @@ const responseMiddleware = (req, res, next) => {
     res.status(404).json({ error: true, message: res.message });
   }
 
-  if (res.badRequest) {
+  if (res.badRequest && !res.notFound) {
     res.status(400).json({ error: true, message: res.message });
   }
 

@@ -74,18 +74,20 @@ router.patch(
                 const {name} = req.body;
                 const userId = req.params.id;
 
-                if (!fighterfService.getBy({id: userId})) {
+                if (!fighterService.getBy({id: userId})) {
+                    res.notFound = true;
                     throw new Error("Fighter to update not found");
+                } else {
+
+                    const updateCandidate = fighterService.getBy({name})
+
+                    if (updateCandidate && (updateCandidate.id !== userId)) {
+
+                        throw new Error("Fighter with such name already exists");
+                    }
+
+                    res.data = fighterService.update(userId, req.body);
                 }
-
-                const updateCandidate = fighterService.getBy({name})
-
-                if (updateCandidate && (updateCandidate.id !== userId)) {
-
-                    throw new Error("Fighter with such name already exists");
-                }
-
-                res.data = fighterService.update(userId, req.body);
             } catch (err) {
                 res.badRequest = true;
                 res.message = err.message;
