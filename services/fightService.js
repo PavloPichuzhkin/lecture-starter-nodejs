@@ -42,13 +42,20 @@ class FightersService {
     updateFight(id, log, res) {
         try {
             const fightToUpdate = this.getById(id);
-            fightToUpdate.log.push(log)
 
-            // console.log(fightToUpdate)
+            const previousLogArray = [...fightToUpdate.log];
+            const previousLog = previousLogArray.pop();
+
+            if (previousLog.fighter1Health < log.fighter1Health || previousLog.fighter2Health < log.fighter2Health) {
+
+                throw new Error("The Fighter's health cannot increase yet");
+            }
+
+            fightToUpdate.log.push(log)
 
             return fightRepository.update(id, fightToUpdate);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             res.badRequest = true;
             res.message = err.message;
         }

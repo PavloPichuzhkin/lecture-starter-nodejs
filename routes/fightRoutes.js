@@ -76,18 +76,6 @@ router.patch(
                     throw new Error("Fight to update not found");
 
                 } else {
-                    // const updateByEmailCandidate = fightersService.search({email})
-                    //
-                    // if (updateByEmailCandidate && (updateByEmailCandidate.id !== id)) {
-                    //     throw new Error("User with such email already exists");
-                    // }
-                    //
-                    // const updateByPhoneCandidate = fightersService.search({phoneNumber})
-                    //
-                    // if (updateByPhoneCandidate && (updateByPhoneCandidate.id !== id)) {
-                    //
-                    //     throw new Error("User with such phone number already exists");
-                    // }
 
                     res.data = fightersService.updateFight(id, log, res);
                 }
